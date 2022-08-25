@@ -10,17 +10,21 @@ namespace CsharpFundamentals
         static void Main(string[] args)
         {
             Console.WriteLine("Please enter an English word");
-            var userInput = Console.ReadLine();
-            var splitInput = userInput.Split(' ');
+            char[] userInput = Console.ReadLine().ToCharArray();
+            char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
             var counter = 0;
 
-            for(var i = 0; i < splitInput.Length; i++)
+            for (var i = 0; i < userInput.Length; i++)
             {
-                if (splitInput[i])
+                for (var j = 0; j < vowels.Length; j++)
                 {
-                    counter++;
+                    if (userInput[i] == vowels[j])
+                    {
+                        counter++;
+                    }
                 }
             }
+            Console.WriteLine(counter);
 
         }
     }
